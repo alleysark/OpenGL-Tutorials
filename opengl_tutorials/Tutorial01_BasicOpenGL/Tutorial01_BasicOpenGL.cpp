@@ -105,7 +105,7 @@ bool InitApp() {
 	glDisable(GL_CULL_FACE);
 	glFrontFace(GL_CCW);
 
-	glPolygonMode(GL_FRONT, GL_POLYGON);
+	glPolygonMode(GL_FRONT, GL_FILL);
 	glPolygonMode(GL_BACK, GL_LINE);
 
 
