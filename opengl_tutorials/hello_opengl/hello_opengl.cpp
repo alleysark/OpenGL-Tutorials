@@ -1,6 +1,7 @@
+#define GLFW_DLL
 #define GLFW_INCLUDE_GLU
 #include <gl/glew.h>
-#include <GLFW\glfw3.h>
+#include <GLFW/glfw3.h>
 
 #include <iostream>
 
@@ -37,11 +38,8 @@ int main() {
 	if (!glfwInit())
 		exit(EXIT_FAILURE);
 
-	// GLEW 초기화
-	glewInit();
-
 	// 윈도우 생성
-	window = glfwCreateWindow(640, 480, "Tutorial 01: Hello OpenGL", NULL, NULL);
+	window = glfwCreateWindow(640, 480, "Tutorial 00: Hello OpenGL", NULL, NULL);
 	if (!window) {
 		// 만약 윈도우 생성에 실패했다면 어플리케이션 종료
 		glfwTerminate();
@@ -58,6 +56,9 @@ int main() {
 	glfwSetKeyCallback(window, KeyCallback);
 	// 윈도우 사이즈 변경 핸들러 등록
 	glfwSetWindowSizeCallback(window, WindowSizeChangeCallback);
+
+	// GLEW 초기화
+	glewInit();
 
 	// 어플리케이션의 초기화
 	InitApp();
