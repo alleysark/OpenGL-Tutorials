@@ -39,7 +39,7 @@ int main() {
 		exit(EXIT_FAILURE);
 
 	// 윈도우 생성
-	window = glfwCreateWindow(640, 480, "Tutorial 00: Hello OpenGL", NULL, NULL);
+	window = glfwCreateWindow(640, 480, "Tutorial 00: Test", NULL, NULL);
 	if (!window) {
 		// 만약 윈도우 생성에 실패했다면 어플리케이션 종료
 		glfwTerminate();
