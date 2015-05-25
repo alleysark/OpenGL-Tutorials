@@ -147,12 +147,17 @@ bool InitApp() {
 		glm::vec3(-0.5f, -0.5f, 0.f), glm::vec3(0.5f, -0.5f, 0.f), glm::vec3(0.5f, 0.5f, 0.f)
 	};
 
+	// OpenGL 4.5 이전의 버퍼 생성 방식.
 	// 정점 버퍼 생성
-	glGenBuffers(1, &gVertexBufferObject);
+	//glGenBuffers(1, &gVertexBufferObject);
 
 	// 정점 버퍼 바인딩 및 데이터 등록
-	glBindBuffer(GL_ARRAY_BUFFER, gVertexBufferObject);
-	glBufferData(GL_ARRAY_BUFFER, gVertices.size()*sizeof(glm::vec3), &gVertices[0], GL_STATIC_DRAW);
+	//glBindBuffer(GL_ARRAY_BUFFER, gVertexBufferObject);
+	//glBufferData(GL_ARRAY_BUFFER, gVertices.size()*sizeof(glm::vec3), &gVertices[0], GL_STATIC_DRAW);
+
+	// OpenGL 4.5의 버퍼 생성 방식. (Direct State Access 기능으로 가능해짐)
+	glCreateBuffers(1, &gVertexBufferObject);
+	glNamedBufferData(gVertexBufferObject, gVertices.size()*sizeof(glm::vec3), &gVertices[0], GL_STATIC_DRAW);
 
 	return true;
 }
